@@ -1,5 +1,5 @@
 import 'package:booking_restaurant/firebase_options.dart';
-import 'package:booking_restaurant/presentation/screens/on_boarding_screen.dart';
+import 'package:booking_restaurant/presentation/screens/navigation_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: OnBoardingScreen(),
+        home: NavigationScreen(),
       ),
     );
   }

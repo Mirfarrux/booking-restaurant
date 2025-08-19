@@ -1,4 +1,4 @@
-import 'package:booking_restaurant/presentation/screens/home_screen.dart';
+import 'package:booking_restaurant/presentation/screens/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -237,7 +237,7 @@ class LoginScreen extends StatelessWidget {
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      HomeScreen(),
+                                                      NavigationScreen(),
                                                 ),
                                               );
                                             },
