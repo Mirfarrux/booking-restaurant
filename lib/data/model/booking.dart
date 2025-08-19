@@ -4,7 +4,7 @@ class BookingModel {
   final String address2;
   final String image;
 
-  BookingModel(Type buildContext, context, {
+  BookingModel({
     required this.name,
     required this.address1,
     required this.address2,

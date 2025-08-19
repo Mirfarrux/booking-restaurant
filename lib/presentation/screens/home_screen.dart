@@ -1,3 +1,4 @@
+import 'package:booking_restaurant/data/model/booking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -191,6 +192,7 @@ class HomeScreen extends StatelessWidget {
 
               SizedBox(height: 20.h),
               buildCardRest(
+                context,
                 "assets/images/rest1.png",
                 "Hotel Zaman Restaurant",
                 "kazi Deiry, Taiger Pass",
@@ -198,6 +200,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               buildCardRest(
+                context,
                 "assets/images/rest2.png",
                 "Tava Restaurant",
                 "Zakir Hossain Rd, ",
@@ -205,6 +208,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               buildCardRest(
+                context,
                 "assets/images/rest1.png",
                 "Haatkhola",
                 "6 Surson Road,",
@@ -218,6 +222,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   Card buildCardRest(
+    BuildContext context,
     String image1,
     String text10,
     String text20,
@@ -229,7 +234,6 @@ class HomeScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Rasm
           ClipRRect(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15.r),
@@ -242,15 +246,11 @@ class HomeScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-
           SizedBox(width: 10.w),
-
-          // Ma'lumotlar qismi
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Restoran nomi
                 Text(
                   text10,
                   style: TextStyle(
@@ -259,18 +259,11 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-
                 SizedBox(height: 5.h),
-
-                // Lokatsiya va Book tugmasi yonma-yon
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(Icons.location_on, color: Colors.green, size: 20.sp),
-
                     SizedBox(width: 5.w),
-
-                    // Manzil
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -286,7 +279,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Spacer(),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        bookingList.add(
+                          BookingModel(
+                            name: text10,
+                            address1: text20,
+                            address2: text30,
+                            image: image1,
+                          ),
+                        );
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("$text10 booked!")),
+                        );
+                      },
                       child: Container(
                         width: 100.w,
                         height: 40.h,
